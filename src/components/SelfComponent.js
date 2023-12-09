@@ -176,10 +176,12 @@ const SelfComponent = () => {
                         required
                       />
                     </div>
+
                   </div>
+                  <br/>
                   <div className="inputContainer">
                     <div className="floating-label">
-                      <label htmlFor="email">Email:</label>
+                      <label htmlFor="email">Email Id:</label>
                       <input
                         type="email"
                         id="email"
@@ -215,9 +217,10 @@ const SelfComponent = () => {
                       </select>
                     </div>
                   </div>
+                  <br/>
                   <div className="inputContainer">
                     <div className="floating-label">
-                      <label htmlFor="date">Date:</label>
+                      <label htmlFor="date">Date Of Birth:</label>
                       <input
                         type="date"
                         id="date"
@@ -244,10 +247,10 @@ const SelfComponent = () => {
             <table style={tableStyle}>
             <thead style={theadStyle}>
           <tr>
-            <th>Mobile No</th>
+            <th>MobileNo</th>
             <th>Email Id</th>
             <th>Gender</th>
-            <th>Date</th>
+            <th>Date Of Birth</th>
             <th>Action</th>
          
           </tr>

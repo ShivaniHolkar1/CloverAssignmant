@@ -354,7 +354,7 @@ const Form = () => {
       </select>
     </label>
     <label>
-      Date:
+      Date Of Birth:
       <input
         type="date"
         className="input-style"
@@ -446,10 +446,10 @@ const Form = () => {
             <thead style={theadStyle}>
               <tr>
                <th>Name</th>
-                <th>Email</th>
+                <th>Email Id</th>
                 <th>Mobile No</th>
-                <th> Birth Date</th>
-                <th> gender</th>
+                <th> Date Of Birth</th>
+                <th> Gender</th>
                 <th>Status</th>
                 <th>Count</th>
 
