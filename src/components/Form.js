@@ -1,514 +1,6 @@
 
 
 
-
-// import React, { useState } from 'react';
-
-// const Form = () => {
-//   const [formData, setFormData] = useState([]);
-//   const [submittedData, setSubmittedData] = useState([]);
-
-//   const handleAddSelfForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Self',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: '',
-//       },
-//     ]);
-//   };
-
-//   const handleAddSpouseForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Spouse',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: '',
-//       },
-//     ]);
-//   };
-
-//   const handleAddSonForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Dependent Son',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: '',
-//       },
-//     ]);
-//   };
-
-//   const handleAddDaughterForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Dependent Daughter',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: '',
-//       },
-//     ]);
-//   };
-
-//   const handleInputChange = (index, type, value) => {
-//     const updatedFormData = [...formData];
-//     updatedFormData[index][type] = value;
-//     setFormData(updatedFormData);
-//   };
-
-//   const handleProceed = () => {
-//     setSubmittedData([...submittedData, ...formData]);
-//     setFormData([]);
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleAddSelfForm}>Add Self Form</button>
-//       <button onClick={handleAddSpouseForm}>Add Spouse Form</button>
-//       <button onClick={handleAddSonForm}>Add Dependent Son Form</button>
-//       <button onClick={handleAddDaughterForm}>Add Dependent Daughter Form</button>
-
-//       {formData.map((item, index) => (
-//         <div key={index}>
-//           <h2>{item.name}</h2>
-//           <label>
-//             Gender:
-//             <select
-//               value={item.gender}
-//               onChange={(e) => handleInputChange(index, 'gender', e.target.value)}
-//             >
-//               <option value="">Select Gender</option>
-//               <option value="Male">Male</option>
-//               <option value="Female">Female</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </label>
-//           <label>
-//             Date:
-//             <input
-//               type="date"
-//               value={item.date}
-//               onChange={(e) => handleInputChange(index, 'date', e.target.value)}
-//             />
-//           </label>
-//           <label>
-//             Field:
-//             <input
-//               type="text"
-//               value={item.field}
-//               onChange={(e) => handleInputChange(index, 'field', e.target.value)}
-//             />
-//           </label>
-//           <label>
-//             Count:
-//             <input
-//               type="text"
-//               value={item.count}
-//               onChange={(e) => handleInputChange(index, 'count', e.target.value)}
-//             />
-//           </label>
-//         </div>
-//       ))}
-
-//       {formData.length > 0 && (
-//         <div>
-//           <button onClick={handleProceed}>Proceed</button>
-//         </div>
-//       )}
-
-//       {submittedData.length > 0 && (
-//         <div>
-//           <h2>All Submitted Data</h2>
-//           <table>
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Gender</th>
-//                 <th>Date</th>
-//                 <th>Field</th>
-//                 <th>Count</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {submittedData.map((item, index) => (
-//                 <tr key={index}>
-//                   <td>{item.name}</td>
-//                   <td>{item.gender}</td>
-//                   <td>{item.date}</td>
-//                   <td>{item.field}</td>
-//                   <td>{item.count}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Form;
-
-
-
-
-
-// import React, { useState } from 'react';
-
-// const Form = () => {
-//   const [formData, setFormData] = useState([]);
-//   const [submittedData, setSubmittedData] = useState([]);
-
-//   const handleAddSelfForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Self',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: 0,
-//       },
-//     ]);
-//   };
-
-//   const handleAddSpouseForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Spouse',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: 0,
-//       },
-//     ]);
-//   };
-
-//   const handleAddSonForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Dependent Son',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: 0,
-//       },
-//     ]);
-//   };
-
-//   const handleAddDaughterForm = () => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: 'Dependent Daughter',
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: 0,
-//       },
-//     ]);
-//   };
-
-//   const handleInputChange = (index, type, value) => {
-//     const updatedFormData = [...formData];
-//     if (type === 'count') {
-//       updatedFormData[index][type] = value;
-//     } else {
-//       updatedFormData[index][type] = value;
-//     }
-//     setFormData(updatedFormData);
-//   };
-
-//   const handleIncrement = (index) => {
-//     const updatedFormData = [...formData];
-//     updatedFormData[index].count++;
-//     setFormData(updatedFormData);
-//   };
-
-//   const handleDecrement = (index) => {
-//     const updatedFormData = [...formData];
-//     if (updatedFormData[index].count > 0) {
-//       updatedFormData[index].count--;
-//       setFormData(updatedFormData);
-//     }
-//   };
-
-//   const handleProceed = () => {
-//     setSubmittedData([...submittedData, ...formData]);
-//     setFormData([]);
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleAddSelfForm}>Add Self Form</button>
-//       <button onClick={handleAddSpouseForm}>Add Spouse Form</button>
-//       <button onClick={handleAddSonForm}>Add Dependent Son Form</button>
-//       <button onClick={handleAddDaughterForm}>Add Dependent Daughter Form</button>
-
-//       {formData.map((item, index) => (
-//         <div key={index}>
-//           <h2>{item.name}</h2>
-//           <label>
-//             Gender:
-//             <select
-//               value={item.gender}
-//               onChange={(e) => handleInputChange(index, 'gender', e.target.value)}
-//             >
-//               <option value="">Select Gender</option>
-//               <option value="Male">Male</option>
-//               <option value="Female">Female</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </label>
-//           <label>
-//             Date:
-//             <input
-//               type="date"
-//               value={item.date}
-//               onChange={(e) => handleInputChange(index, 'date', e.target.value)}
-//             />
-//           </label>
-//           {/* <label>
-//             Field:
-//             <input
-//               type="text"
-//               value={item.field}
-//               onChange={(e) => handleInputChange(index, 'field', e.target.value)}
-//             />
-//           </label> */}
-//           <label>
-//             Count:
-//             <button onClick={() => handleDecrement(index)}>-</button>
-//             <input
-//               type="text"
-//               value={item.count}
-//               onChange={(e) => handleInputChange(index, 'count', e.target.value)}
-//             />
-//             <button onClick={() => handleIncrement(index)}>+</button>
-//           </label>
-//         </div>
-//       ))}
-
-//       {formData.length > 0 && (
-//         <div>
-//           <button onClick={handleProceed}>Proceed</button>
-//         </div>
-//       )}
-
-//       {submittedData.length > 0 && (
-//         <div>
-//           <h2>All Submitted Data</h2>
-//           <table>
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Gender</th>
-//                 <th>Date</th>
-//                 <th>Field</th>
-//                 <th>Count</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {submittedData.map((item, index) => (
-//                 <tr key={index}>
-//                   <td>{item.name}</td>
-//                   <td>{item.gender}</td>
-//                   <td>{item.date}</td>
-//                   <td>{item.field}</td>
-//                   <td>{item.count}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Form;
-
-
-
-
-// import React, { useState } from 'react';
-
-// const Form = () => {
-//   const [formData, setFormData] = useState([]);
-//   const [submittedData, setSubmittedData] = useState([]);
-//   const [showFamilyButtons, setShowFamilyButtons] = useState(true);
-
-//   const toggleFamilyButtons = () => {
-//     setShowFamilyButtons(!showFamilyButtons);
-//   };
-
-//   const handleAddForm = (formName) => {
-//     setFormData([
-//       ...formData,
-//       {
-//         name: formName,
-//         gender: '',
-//         date: '',
-//         field: '',
-//         count: 0,
-//       },
-//     ]);
-//   };
-
-//   const handleInputChange = (index, type, value) => {
-//     const updatedFormData = [...formData];
-//     updatedFormData[index][type] = value;
-//     setFormData(updatedFormData);
-//   };
-
-//   const handleIncrement = (index) => {
-//     const updatedFormData = [...formData];
-//     updatedFormData[index].count++;
-//     setFormData(updatedFormData);
-//   };
-
-//   const handleDecrement = (index) => {
-//     const updatedFormData = [...formData];
-//     if (updatedFormData[index].count > 0) {
-//       updatedFormData[index].count--;
-//       setFormData(updatedFormData);
-//     }
-//   };
-
-//   const handleProceed = () => {
-//     setSubmittedData([...submittedData, ...formData]);
-//     setFormData([]);
-//     setShowFamilyButtons(true); // Show family buttons again after submission
-//   };
-
-//   return (
-//     <div>
-//       {showFamilyButtons ? (
-//         <button onClick={toggleFamilyButtons}>Family</button>
-//       ) : (
-//         <div>
-//           <button onClick={() => handleAddForm('Self')}>Add Self Form</button>
-//           <button onClick={() => handleAddForm('Spouse')}>Add Spouse Form</button>
-//           <button onClick={() => handleAddForm('Dependent Son')}>Add Dependent Son Form</button>
-//           <button onClick={() => handleAddForm('Dependent Daughter')}>Add Dependent Daughter Form</button>
-//           <button onClick={toggleFamilyButtons}>Hide Family</button>
-//         </div>
-//       )}
-
-//       {formData.map((item, index) => (
-//         <div key={index}>
-//           <h2>{item.name}</h2>
-//           <label>
-//             Gender:
-//             <select
-//               value={item.gender}
-//               onChange={(e) => handleInputChange(index, 'gender', e.target.value)}
-//             >
-//               <option value="">Select Gender</option>
-//               <option value="Male">Male</option>
-//               <option value="Female">Female</option>
-//               <option value="Other">Other</option>
-//             </select>
-//           </label>
-//           <label>
-//             Date:
-//             <input
-//               type="date"
-//               value={item.date}
-//               onChange={(e) => handleInputChange(index, 'date', e.target.value)}
-//             />
-//           </label>
-//           {/* <label>
-//             Field:
-//             <input
-//               type="text"
-//               value={item.field}
-//               onChange={(e) => handleInputChange(index, 'field', e.target.value)}
-//             />
-//           </label> */}
-//           <label>
-//             Count:
-//             <button onClick={() => handleDecrement(index)}>-</button>
-//             <input
-//               type="text"
-//               value={item.count}
-//               onChange={(e) => handleInputChange(index, 'count', e.target.value)}
-//             />
-//             <button onClick={() => handleIncrement(index)}>+</button>
-//           </label>
-//         </div>
-//       ))}
-
-//       {formData.length > 0 && (
-//         <div>
-//           <button onClick={handleProceed}>Proceed</button>
-//         </div>
-//       )}
-
-//       {submittedData.length > 0 && (
-//         <div>
-//           <h2>All Submitted Data</h2>
-//           <table>
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Gender</th>
-//                 <th>Date</th>
-//                 <th>Field</th>
-//                 <th>Count</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {submittedData.map((item, index) => (
-//                 <tr key={index}>
-//                   <td>{item.name}</td>
-//                   <td>{item.gender}</td>
-//                   <td>{item.date}</td>
-//                   <td>{item.field}</td>
-//                   <td>{item.count}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Form;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from 'react';
 import { FaUserAlt } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
@@ -521,93 +13,23 @@ import { FaUserGroup } from "react-icons/fa6";
 const Form = () => {
   const [formData, setFormData] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
-
   const [showFamilyButtons, setShowFamilyButtons] = useState(true);
   const [highlightedButton, setHighlightedButton] = useState(null);
-
-
-  const toggleFamilyButtons = () => {
-    setShowFamilyButtons(!showFamilyButtons);
-  };
   
-  
- 
-
-  const handleAddSelfForm = () => {
-    setFormData([
-      ...formData,
-      {
-        name: 'Self',
-        gender: '',
-        date: '',
-        field: 'Kotak Smart Travel',
-        count: 0,
-        status:'Active',
-        tripDuration:'7',
-      floter:"Floater",
-      singletrip:"Single Trip"
-
-      },
-    ]);
-    setHighlightedButton('Self');
-  };
-
-  const handleAddSpouseForm = () => {
-    setFormData([
-      ...formData,
-      {
-        name: 'Spouse',
-        gender: '',
-        date: '',
-        field: 'Kotak Smart Travel',
-        count: 0,
-        status:'Active',
-      tripDuration:'7',
-      floter:"Floater",
-      singletrip:"Single Trip"
-      },
-    ]);
-    setHighlightedButton('Spouse');
-  };
-
-  const handleAddSonForm = () => {
-    setFormData([
-      ...formData,
-      {
-        name: 'Dependent Son',
-        gender: '',
-        date: '',
-        field: 'Kotak Smart Travel',
-        count: 0,
-        status:'Active',
-      tripDuration:'7',
-      floter:"Floater",
-      singletrip:"Single Trip"
-      },
-    ]);
-    setHighlightedButton('Dependent Son');
-  };
-
-  const handleAddDaughterForm = () => {
-    setFormData([
-      ...formData,
-      {
-        name: 'Dependent Daughter',
-        gender: '',
-        date: '',
-        field: 'Kotak Smart Travel',
-        count: 0,
-        status:'Active',
-      tripDuration:'7',
-      floter:"Floater",
-      singletrip:"Single Trip"
-      },
-    ]);
-    setHighlightedButton('Dependent Daughter');
-  };
-
 
   const buttonStyle = {
+    width: '10%',
+  marginLeft:"10%",
+    padding: '10px',
+    backgroundColor: 'red',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '14px',
+  };
+
+  const buttonStyle1 = {
     width: '10%',
   
     padding: '10px',
@@ -618,6 +40,7 @@ const Form = () => {
     cursor: 'pointer',
     fontSize: '14px',
   };
+
 
 
 
@@ -706,13 +129,111 @@ const Form = () => {
     height:"40px"
   };
 
+  const inputStyle = {
+    width: '120px',
+    
+   
+    borderRadius: '5px',
+    padding: '8px',
+    fontSize: '16px',
+  };
+
+  const toggleFamilyButtons = () => {
+    setShowFamilyButtons(!showFamilyButtons);
+  };
+
+
+
+  const handleAddSelfForm = () => {
+    setFormData([
+      ...formData,
+      {
+        name: 'Self',
+        gender: '',
+        date: '',
+        // count: 0,
+        status:'Active',
+        
+
+      },
+    ]);
+    setHighlightedButton('Self');
+    
+  };
+
+  const handleAddSpouseForm = () => {
+    setFormData([
+      ...formData,
+      {
+        name: 'Spouse',
+        gender: '',
+        date: '',
+        // count: 0,
+        status:'Active',
+     
+      },
+    ]);
+    setHighlightedButton('Spouse');
+    
+  };
+
+  const handleAddSonForm = () => {
+    setFormData([
+      ...formData,
+      {
+        name: 'Dependent Son',
+        gender: '',
+        date: '',
+        count: 0,
+        status:'Active',
+      
+      },
+    ]);
+    setHighlightedButton('Dependent Son');
+    
+  };
+
+  const handleAddDaughterForm = () => {
+    setFormData([
+      ...formData,
+      {
+        name: 'Dependent Daughter',
+        gender: '',
+        date: '',
+       
+        count: 0,
+        status:'Active',
+    
+      },
+    ]);
+    setHighlightedButton('Dependent Daughter');
+   
+  };
+
+  
+ 
+
+  
+  const handleAddForm = (formName) => {
+    setFormData([
+      ...formData,
+      {
+        name: formName,
+        gender: '',
+        date: '',
+        count: 0,
+        status: 'Active',
+        mobile: '',
+        email: '',
+      },
+    ]);
+    setHighlightedButton(formName);
+  };
+
+  
   const handleInputChange = (index, type, value) => {
     const updatedFormData = [...formData];
-    if (type === 'count') {
-      updatedFormData[index][type] = value;
-    } else {
-      updatedFormData[index][type] = value;
-    }
+    updatedFormData[index][type] = value;
     setFormData(updatedFormData);
   };
 
@@ -730,30 +251,33 @@ const Form = () => {
     }
   };
 
+  
   const handleClearForm = () => {
     setFormData([]);
-    setShowFamilyButtons(true);
+   
   };
 
+  
   const handleProceed = () => {
     setSubmittedData([...submittedData, ...formData]);
     setFormData([]);
-    setShowFamilyButtons(true);
+   setShowFamilyButtons(true); 
   };
 
-
+  
   const handleDeleteSubmittedData = (index) => {
     const updatedSubmittedData = [...submittedData];
     updatedSubmittedData.splice(index, 1);
     setSubmittedData(updatedSubmittedData);
   };
+
   
   return (
     <div>
-       
-<div>
+     
 
-{showFamilyButtons ? (
+
+      {showFamilyButtons ? (
         <button  style={selfStyle5} onClick={toggleFamilyButtons}>   <FaUserGroup style={{ marginBottom: '5px',height:"30%",width:"30%"}} /><br/>
           
         Family</button>
@@ -801,11 +325,20 @@ const Form = () => {
     </div>
         )}
      
-
-
+   
 
 {formData.map((item, index) => (
+
+
+
   <div key={index} className="grid-container">
+
+
+  
+      
+
+
+
     <h4>{item.name}</h4>
     <label>
       Gender:
@@ -840,16 +373,65 @@ const Form = () => {
       />
       <button className="input-style1" onClick={() => handleIncrement(index)}>+</button>
     </label>
+
+
+
+    {highlightedButton && (
+        <div >
+
+<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+ <label style={{ flex: '0 0 80%' }}>
+   
+ Mobile No : 
+  <input
+      style={{ ...inputStyle, width: 'calc(100% - 40px)' }}
+      id="mobile"
+      name="mobile"
+      pattern="[0-9]*"
+      required
+      placeholder="Mobile No"
+      type="tel"
+      value={formData[formData.length - 1]?.mobile || ''}
+      onChange={(e) => handleInputChange(formData.length - 1, 'mobile', e.target.value)}
+    />
+  </label>
+
+  <label style={{ flex: '0 0 80%' }}>
+    Email Id:
+    <input
+      id="email"
+      name="email"
+      required
+      placeholder="Email Id"
+      style={{ ...inputStyle, width: 'calc(100% - 40px)' }}
+      type="email"
+      value={formData[formData.length - 1]?.email || ''}
+      onChange={(e) => handleInputChange(formData.length - 1, 'email', e.target.value)}
+    />
+  </label>
+</div>
+
+ 
+        </div>
+      )}
   </div>
+
+
+
 ))}
 
+
+
+      
+     
+    
 
 <br/>
 <br/>
       {formData.length > 0 && (
-        <div>
+        <div >
           <button style={buttonStyle} onClick={handleClearForm}>Back</button>&nbsp;
-          <button style={buttonStyle} onClick={handleProceed}>Proceed</button>
+          <button style={buttonStyle1} onClick={handleProceed}>Proceed</button>
         </div>
       )}
 
@@ -863,14 +445,11 @@ const Form = () => {
           <table style={tableStyle}>
             <thead style={theadStyle}>
               <tr>
-                {/* <th>Policy No/Certificate No</th> */}
-                <th>Name</th>
-                <th>Product Name</th>
-                <th> Policy Date</th>
+               <th>Name</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th> Birth Date</th>
                 <th> gender</th>
-                {/* <th>Single Trip/Multiple Trip</th>
-                <th>Floater/Individual</th>
-                <th>TripDuration</th> */}
                 <th>Status</th>
                 <th>Count</th>
 
@@ -882,15 +461,16 @@ const Form = () => {
                
               
                 <tr key={index} style={rowStyle}>
-                  {/* <td>{index}</td> */}
+                 
                  
                   <td>{item.name}</td>
-                  <td>{item.field}</td>
+                  <td>{item.email}</td>
+                  <td>{item.mobile}</td>
+               
                   <td>{item.date}</td>
                   <td>{item.gender}</td>
-                  {/* <td>{item.singletrip}</td>
-                  <td>{item.floter}</td>
-                  <td>{item.tripDuration}</td> */}
+                  
+               
                    <td>{item.status}</td>
                    <td>{item.count}</td>
                   <td>
@@ -904,9 +484,8 @@ const Form = () => {
           </table>
         </div>
       )}
-      </div>
-
-   </div>
+    
+    </div>
   );
 };
 
